@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #dcdcdcc2;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 400px;
+        margin: 100px auto;
+        background-color: #fff;
+        padding: 10px;
+        font-family: "Times New Roman", serif;
+
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(12, 11, 11, 0.271);
+      }
+      h1 {
+        text-align: center;
+        color: #007bff;
+        margin-bottom: 30px;
+      }
+      label {
+        display: inline;
+        margin-left: 15px;
+        margin-bottom: 10px;
+      }
+      input {
+        width: 60%;
+        display: inline;
+        padding: 10px;
+        margin-bottom: 20px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        border-radius: 15px;
+        color: #fff;
+        cursor: pointer;
+      }
+      p {
+        margin-top: 25px;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 600px) {
+        h1 {
+          font-size: 30px;
+        }
+        label {
+          margin-left: 0;
+        }
+        input {
+          width: 50vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Age Calculator</h1>
+      <label for="dob">Date of Birth </label>
+      <input type="date" id="dob" placeholder="day-Month-Year" />
+      <button id="calculateBtn">Calculate Age</button>
+      <p id="result"></p>
+    </div>
+    <script>
+      // First Of all Variables
+      var userAge = document.querySelector("#dob");
+      var calculateBtn = document.querySelector("#calculateBtn");
+      var ageResult = document.querySelector("#result");
+      // And Then Logic,
+      calculateBtn.addEventListener("click", function calculator() {
+        // User Date
+        var user = new Date(userAge.value);
+        let userYear = user.getFullYear();
+
+        // Current Date
+        var now = new Date();
+        var currentYear = now.getFullYear();
+
+        // Result
+        var result = currentYear - userYear;
+
+        // Output
+        ageResult.innerHTML = "Your age is " + result;
+
+        // Make it simple
+
+        // if (userAge.value === "") {
+        //   //ager user date select na kary too...
+        //   alert("Please Enter Your Date Of Birth"); // ye alert aaajay ga
+        // } else {
+        //   // or agar user ny koi date select kar li too ye code run hoga...
+        //   var dob = new Date(userAge.value);
+        //   var dob_year = dob.getFullYear;
+        //   // current
+        //   var currentDate = new Date();
+        //   var currentYear = currentDate.getFullYear;
+        //   var age = currentYear - dob_year;
+        //   ageResult.innerHTML = `Your age is : ${age}`;
+        // }
+      });
+    </script>
+  </body>
+</html>
